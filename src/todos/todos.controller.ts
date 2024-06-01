@@ -7,7 +7,9 @@ export class TodosController {
     constructor(private readonly todoService: TodosService) {}
 
     @Get(':id')
-    findOne(@Param('id') id: string) {}
+    findOne(@Param('id') id: string) {
+        return this.todoService.findOn(id);
+    }
 
     @Get()
     findAll(): Todo[] {
