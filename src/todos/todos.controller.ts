@@ -1,6 +1,7 @@
 import { Body, Controller, Get, Post, Param } from '@nestjs/common';
 import { TodosService } from './todos.service';
 import { Todo } from './interfaces/todo.interface';
+import { CreateTodoDto } from './dto/create-todo.dto';
 
 @Controller('todos')
 export class TodosController {
@@ -17,7 +18,7 @@ export class TodosController {
     }
 
     @Post()
-    createToDo(@Body() newToDo ) {
+    createToDo(@Body() newToDo: CreateTodoDto) {
         this.todoService.create(newToDo);
     }
 }
